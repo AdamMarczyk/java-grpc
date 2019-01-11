@@ -16,6 +16,14 @@ buildscript {
     }
 }
 
+sourceSets.main.java.srcDir new File(buildDir, 'generated/source')
+idea {
+    module {
+        // Marks the already(!) added srcDir as "generated"
+        generatedSourceDirs += file('build/generated/source')
+    }
+}
+
 repositories {
     mavenCentral()
 }
